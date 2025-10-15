@@ -6,6 +6,17 @@
 }
 
 
+/* global.css or Tailwind base */
+html {
+  overflow-y: scroll; /* always show vertical scrollbar */
+}
+
+html.no-scroll,
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
+}
+
 /*
 Mobile Responsive
 Hero Section 

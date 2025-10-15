@@ -32,7 +32,9 @@ const Footer: React.FC = () => {
       href: "tel:+94711000700",
     },
     {
-      icon: <FiMapPin className="lg:w-6 lg:h-6 w-4 h-4 text-white/75" />,
+      icon: (
+        <FiMapPin className="lg:w-6 lg:h-6 md:w-6  w-4 h-4 text-white/75" />
+      ),
       text: "400 D, New Kandy Road, Talangama, Sri Lanka",
       href: "https://maps.google.com/?q=400+D,+New+Kandy+Road,+Talangama,+Sri+Lanka",
     },
@@ -58,18 +60,22 @@ const Footer: React.FC = () => {
   ];
   return (
     <>
-      <div className="flex flex-col items-center text-center space-y- bg-transparent">
-        <p className="text-xl md:text-2xl font-semibold font-belda text-secondary">
+      <div className="flex flex-col items-center text-center  bg-transparent">
+        <p className="w-2/3 text-xl  md:text-3xl   font-semibold font-belda text-secondary">
           We Are Always Here When You Need Us
         </p>
-        <p className="max-w-4xl md:text-lg text-base text- font-light px-4 mt-3">
+        <p className="hidden md:block w-5/6 md:text-xl text-base text- font-light px-4 mt-4">
           We provide 24/7 assistance, ensuring you can reach us any time of the
           day or night. Our dedicated staff is always available to guide you,
           answer your questions, or offer compassionate support.
         </p>
+        <p className="block md:hidden w-5/6 md:text-xl text-base text- font-light px-4 mt-4">
+          We provide 24/7 assistance, ensuring you can reach us any time of the
+          day or night.
+        </p>
         <button
           onClick={() => (window.location.href = "tel:+94711000700")}
-          className="px-12 py-3 text-lg bg-primary hover:bg-primary/70 text-ternary rounded-lg mt-8 mb-6 cursor-pointer "
+          className="px-12 py-3 text-lg bg-primary hover:bg-primary/70 text-ternary rounded-lg mt-8 mb-8 cursor-pointer "
         >
           Call Now
         </button>
@@ -82,7 +88,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Main Footer Content */}
-        <div className="container py-12 w-5/6 mx-auto">
+        <div className="container md:py-12 md:w-5/6 mx-auto w-11/12">
           {/* Desktop Layout */}
           <div className="hidden lg:grid lg:grid-cols-4 gap-8 justify-items-center">
             {/* Logo & Description */}
@@ -92,7 +98,7 @@ const Footer: React.FC = () => {
                 alt="Logo"
                 className="mx-auto object-contain w-full "
               />
-              <p className="text-lg text-white font-light leading-[26px] lg:text-justify text-justify px-4 lg:px-0">
+              <p className="text-lg text-white font-light leading-[26px] lg:text-justify text-justify px-4 lg:px-0 ">
                 Mahinda Panagoda Funeral Directors was inaugurated in 2000 with
                 all Funeral services to cater the clients under one roof from
                 basic Funeral to VIP Funerals and Funeral Parlour with 24 hour
@@ -173,15 +179,15 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Mobile Layout */}
-          <div className="block md:hidden space-y-8 min-h-[200px]">
+          <div className="block md:hidden space-y-8 min-h-[200px">
             {/* Logo & Description */}
-            <div className="text-left">
+            <div className="text-left mt-4">
               <img
                 src={logo}
                 alt="Logo"
-                className="object-contain w-[300px] mb-4"
+                className="object-contain w-[300px] mb-2"
               />
-              <p className="text-base text-white font-light leading-6 text-left">
+              <p className="text-base text-white font-light leading-6 text-justify">
                 Mahinda Panagoda Funeral Directors was inaugurated in 2000 with
                 all Funeral services to cater the clients under one roof from
                 basic Funeral to VIP Funerals and Funeral Parlour with 24 hour
@@ -221,7 +227,7 @@ const Footer: React.FC = () => {
             <div className="text-left">
               <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
 
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-1">
                 {contactInfo.map((item, idx) => (
                   <a
                     key={idx}
@@ -244,32 +250,44 @@ const Footer: React.FC = () => {
                 ))}
               </div>
 
-              <div className="flex justify-center space-x-5 mt-8">
-                {socialIcons.map((icon, idx) => (
-                  <a
-                    key={idx}
-                    href={icon.link}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <img
-                      src={icon.src}
-                      alt={icon.alt}
-                      className="w-6 h-6 hover:opacity-80 transition"
-                    />
-                  </a>
-                ))}
-              </div>
+             
             </div>
+             {/* Social Icons + Privacy Policy Row */}
+              <div className="flex justify-between items-center mt-20">
+                {/* Social Icons - Left */}
+                <div className="flex space-x-3 mb-2">
+                  {socialIcons.map((icon, idx) => (
+                    <a
+                      key={idx}
+                      href={icon.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <img
+                        src={icon.src}
+                        alt={icon.alt}
+                        className="w-6 h-6 hover:opacity-80 transition"
+                      />
+                    </a>
+                  ))}
+                </div>
+
+                {/* Privacy Policy - Right */}
+                <div className="text-right">
+                  <a href="#" className="hover:underline text-xs text-white/75">
+                    Privacy Policy | Terms of Services
+                  </a>
+                </div>
+              </div>
           </div>
         </div>
         {/* Tablet Layout */}
-        <div className="hidden md:flex lg:hidden w-5/6 mx-auto flex-col px-8  space-y-10 -translate-y-12 ">
-          {/* Row 1: Logo + Content | Quick Links */}
-          <div className="flex flex-col sm:flex-row gap-10">
-            {/* Logo + Description */}
-            <div className="sm:w-1/2 text-left">
-              <img src={logo} alt="Logo" className="w-72 mb-4" />
+        <div className="hidden md:flex lg:hidden w-5/6 mx-auto flex-col space-y-10 -translate-y-12">
+          {/* Row 1: Logo + Description + Social Icons */}
+          <div className="flex flex-col sm:flex-row justify-between items-start gap-10">
+            {/* Left: Logo + Description */}
+            <div className="w-3/4 text-left">
+              <img src={logo} alt="Logo" className="w-96 mb-4" />
               <p className="text-base text-white/75 leading-6 text-justify">
                 Mahinda Panagoda Funeral Directors was inaugurated in 2000 with
                 all Funeral services to cater the clients under one roof from
@@ -278,8 +296,24 @@ const Footer: React.FC = () => {
               </p>
             </div>
 
+            {/* Right: Social Icons  */}
+            <div className="w-1/4 flex justify-end items-end space-x-6 mt-25 ">
+              {socialIcons.map((icon, idx) => (
+                <a key={idx} href={icon.link} target="_blank" rel="noreferrer">
+                  <img
+                    src={icon.src}
+                    alt={icon.alt}
+                    className="w-7 h-7 hover:opacity-80 transition"
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 2: Quick Links | Packages | Contact Us */}
+          <div className="flex flex-col sm:flex-row gap-10 mt-1">
             {/* Quick Links */}
-            <div className="sm:w-1/2 text-left pl-16 mt-4">
+            <div className="w-1/3 text-left">
               <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
               <ul className="space-y-1 text-base text-white/75">
                 {quickLinks.map((link, index) => (
@@ -291,12 +325,9 @@ const Footer: React.FC = () => {
                 ))}
               </ul>
             </div>
-          </div>
 
-          {/* Row 2: Packages | Contact */}
-          <div className="flex flex-col sm:flex-row gap-10">
             {/* Packages */}
-            <div className="sm:w-1/2 text-left">
+            <div className="w-1/3 text-left">
               <h3 className="text-lg font-semibold mb-3">Packages</h3>
               <ul className="space-y-1 text-base text-white/75">
                 {packagesLinks.map((link, index) => (
@@ -310,9 +341,9 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="sm:w-1/2 text-left pl-16">
+            <div className="w-1/3 text-left">
               <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-1">
                 {contactInfo.map((item, i) => (
                   <a
                     key={i}
@@ -336,45 +367,29 @@ const Footer: React.FC = () => {
               </div>
             </div>
           </div>
-
-          {/* Social Icons centered below */}
-          <div className="flex justify-center space-x-6 mt-6">
-            {socialIcons.map((icon, idx) => (
-              <a key={idx} href={icon.link} target="_blank" rel="noreferrer">
-                <img
-                  src={icon.src}
-                  alt={icon.alt}
-                  className="w-7 h-7 hover:opacity-80 transition"
-                />
-              </a>
-            ))}
-          </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="relative bg-gradient-to-b from-transparent to-secondary">
+        <div className="relative bg-gradient-to-b from-transparent to-secondary  ">
           {/* Top line */}
-          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-5/6 h-px bg-white"></div>
+          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 md:w-5/6 w-11/12 mx-auto h-px bg-white"></div>
 
           {/* Main content */}
           <div className="w-5/6 mx-auto container flex flex-col sm:flex-col md:flex-row items-center justify-between py-4 text-xs text-white/80 space-y-2 md:space-y-0">
             {/* Left content */}
-            <div className="flex items-center space-x-2 ml-6 lg:ml-0 md:ml-0 md:space-x-4 text-xs -translate-x-0.5 mt-4">
+            <div className="flex items-center space-x-2 ml-6 lg:ml-0 md:ml-0 md:space-x-4 lg:pt-0 pt-3 text-xs -translate-x-0.5 mt-4">
               <span>All rights reserved | Developed by</span>
               <img
                 src={AIOHlogo}
                 alt="Logo"
-                className="w-11 h-auto inline-block align-middle lg:-translate-x-3 -translate-x-1 lg:translate-y-0 -translate-y-[11%]"
+                className="w-14 h-auto inline-block align-middle lg:-translate-x-3 -translate-x-1 -lg:translate-y-1 -translate-y-[11%]"
               />
             </div>
 
             {/* Right content */}
-            <div className="flex items-center lg:space-x-8 space-x-10 text-xs translate-x-0.5 mt-4">
+            <div className="hidden md:flex items-center lg:space-x-8 space-x-2 text-xs translate-x-0.5 mt-4">
               <a href="#" className="hover:underline">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:underline">
-                Terms of Services
+                Privacy Policy | Terms of Services
               </a>
             </div>
           </div>

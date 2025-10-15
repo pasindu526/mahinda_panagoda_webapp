@@ -117,26 +117,30 @@ const ImageCollection = () => {
 
   const handleShowLess = () => setExtraRowsShown(0);
 
-  useEffect(() => {
-    if (activeIndex !== null) {
-      document.body.style.overflow = "hidden"; // stop scrolling when modal is open
-    } else {
-      document.body.style.overflow = "auto"; // restore scrolling when modal closes
-    }
+ useEffect(() => {
+  const html = document.documentElement;
+  if (activeIndex !== null) {
+    document.body.style.overflow = "hidden";
+    html.style.overflow = "hidden"; // also lock <html>
+  } else {
+    document.body.style.overflow = "auto";
+    html.style.overflow = "auto";
+  }
 
-    return () => {
-      document.body.style.overflow = "auto"; // cleanup on unmount
-    };
-  }, [activeIndex]);
+  return () => {
+    document.body.style.overflow = "auto";
+    html.style.overflow = "auto";
+  };
+}, [activeIndex]);
 
   return (
     <div className="w-full mx-auto text-ternary">
       {/* Header */}
       <div className="mb-6 text-center">
-        <h1 className="text-xs font-belda text-ternary/70 mb-2 uppercase tracking-wider">
+        <h1 className="text-xs font-belda text-ternary/70 mb-1 lg:mb-2 uppercase tracking-wider">
           Captured Moments
         </h1>
-        <h1 className="md:text-5xl text-3xl leading-[41px] md:leading-[62px]  font-belda font-semibold">
+        <h1 className="lg:text-5xl md:text-3xl text-2xl leading-[41px] md:leading-[62px]  font-belda font-semibold">
           Image Collections
         </h1>
       </div>
@@ -151,7 +155,7 @@ const ImageCollection = () => {
           <img
             src={images[0]}
             alt="Gallery"
-            className="w-full h-full object-cover rounded-2xl grayscale-50"
+            className="w-full h-full object-cover rounded-2xl grayscale-75"
           />
           <button className="absolute top-2 right-2 p-1.5 backdrop-blur-sm rounded-lg border-2 border-primary text-primary cursor-pointer">
             <Maximize2 size={18} />
@@ -211,7 +215,7 @@ const ImageCollection = () => {
               <img
                 src={img}
                 alt="Gallery"
-                className="w-full h-40 md:h-32 lg:h-56 object-cover rounded-2xl grayscale-50"
+                className="w-full h-40 md:h-32 lg:h-56 object-cover rounded-2xl grayscale-75"
               />
               <button className="absolute top-2 right-2 p-1.5 backdrop-blur-sm rounded-lg border-2 border-primary text-primary cursor-pointer">
                 <Maximize2 size={18} />
@@ -245,7 +249,7 @@ const ImageCollection = () => {
                     <img
                       src={chunk[0]}
                       alt="Gallery"
-                      className="w-full lg:h-[476px] h-[282px] object-cover rounded-2xl grayscale-50"
+                      className="w-full lg:h-[476px] h-[282px] object-cover rounded-2xl grayscale-75"
                     />
                     <button className="absolute top-2 right-2 p-1.5 backdrop-blur-sm rounded-lg border-2 border-primary text-primary cursor-pointer">
                       <Maximize2 size={18} />
@@ -304,7 +308,7 @@ const ImageCollection = () => {
                       <img
                         src={img}
                         alt="Gallery"
-                        className="w-full h-40 md:h-32 lg:h-56 object-cover rounded-2xl grayscale-50"
+                        className="w-full h-40 md:h-32 lg:h-56 object-cover rounded-2xl grayscale-75"
                       />
                       <button className="absolute top-2 right-2 p-1.5 backdrop-blur-sm rounded-lg border-2 border-primary text-primary cursor-pointer">
                         <Maximize2 size={18} />
@@ -385,7 +389,7 @@ const ImageCollection = () => {
                 <img
                   src={img}
                   alt="Gallery"
-                  className="w-full h-40 object-cover rounded-xl grayscale-50"
+                  className="w-full h-40 object-cover rounded-xl grayscale-75"
                   onClick={() => openModal(i + INITIAL_VISIBLE)}
                 />
 
@@ -463,7 +467,7 @@ const ImageCollection = () => {
           <img
             src={images[activeIndex]}
             alt="Gallery"
-            className="max-h-[90%] max-w-[90%] rounded-lg shadow-lg grayscale-50"
+            className="max-h-[90%] max-w-[90%] rounded-lg shadow-lg"
           />
           <button
             onClick={nextImage}

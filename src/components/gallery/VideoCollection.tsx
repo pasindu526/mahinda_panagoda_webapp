@@ -44,10 +44,10 @@ const VideoCollection: React.FC = () => {
     <div className="w-full mx-auto text-ternary">
       {/* Header */}
       <div className="mb-6 text-center">
-        <h1 className="text-xs font-belda text-ternary/70 mb-2 uppercase tracking-wider">
+        <h1 className="text-xs font-belda text-ternary/70 mb-1 lg:mb-2 uppercase tracking-wider">
           Stories in motion
         </h1>
-        <h1 className="md:text-5xl text-3xl leading-[41px] md:leading-[62px] font-belda font-semibold">
+        <h1 className="lg:text-5xl md:text-3xl text-2xl leading-[41px] md:leading-[62px]  font-belda font-semibold">
           Video Collections
         </h1>
       </div>
@@ -55,9 +55,9 @@ const VideoCollection: React.FC = () => {
       {/* Desktop Video Grid */}
       <div className="hidden md:grid grid-cols-3 gap-3 md:gap-7 relative">
         {videos.slice(0, visibleCountDesktop).map((video, i) => {
-          const isCollapsed = visibleCountDesktop === INITIAL_COUNT_DESKTOP;
-          const lastRowStart = INITIAL_COUNT_DESKTOP - 3;
-          const showOverlay = isCollapsed && i >= lastRowStart;
+          // last row starts at "visibleCountDesktop - 3"
+          const lastRowStart = visibleCountDesktop - 3;
+          const showOverlay = i >= lastRowStart;
 
           return (
             <div
@@ -115,35 +115,38 @@ const VideoCollection: React.FC = () => {
         )}
       </div>
 
-      {/* Mobile Video Grid */}
-      <div className="grid grid-cols-2 gap-3 md:hidden">
-        {videos.slice(0, visibleCountMobile).map((video, i) => {
-          const showOverlay =
-            extraRowsShownMobile === 0 &&
-            i >= INITIAL_COUNT_MOBILE - 2 &&
-            i < INITIAL_COUNT_MOBILE;
+   {/* Mobile Video Grid */}
+<div className="grid grid-cols-2 gap-3 md:hidden">
+  {videos.slice(0, visibleCountMobile).map((video, i, arr) => {
+    const videosPerRow = 2;
 
-          return (
-            <div
-              key={i}
-              className="relative aspect-video w-full overflow-hidden rounded-lg cursor-pointer"
-              onClick={() => openPopup(video)}
-            >
-              <iframe
-                className="w-full h-full rounded-lg cursor-pointer"
-                src={video}
-                title={`YouTube video ${i + 1}`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+    // Calculate index where last row starts dynamically
+    const lastRowStart = arr.length - (arr.length % videosPerRow || videosPerRow);
 
-              {showOverlay && (
-                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white to-transparent rounded-b-lg"></div>
-              )}
-            </div>
-          );
-        })}
+    const isLastRow = i >= lastRowStart;
+
+    return (
+      <div
+        key={i}
+        className="relative aspect-video w-full overflow-hidden rounded-lg cursor-pointer"
+        onClick={() => openPopup(video)}
+      >
+        <iframe
+          className="w-full h-full rounded-lg cursor-pointer"
+          src={video}
+          title={`YouTube video ${i + 1}`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+
+        {/* Gradient overlay at bottom for last row */}
+        {isLastRow && (
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white to-transparent rounded-b-lg z-20"></div>
+        )}
       </div>
+    );
+  })}
+</div>
 
       {/* Mobile Show More / Show Less Buttons */}
       <div className="md:hidden flex justify-center gap-7 mt-4">
@@ -159,7 +162,7 @@ const VideoCollection: React.FC = () => {
                 className="w-8 h-8 transition-transform duration-300 transform rotate-0"
               />
             </div>
-            <span className=" text-sm underline">Show More Videos</span>
+            <span className="text-sm underline">Show More Videos</span>
           </button>
         )}
         {visibleCountMobile >= videos.length && (

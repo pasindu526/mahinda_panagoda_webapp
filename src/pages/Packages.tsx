@@ -1,13 +1,14 @@
-import React from 'react'
-import Navbar from '../components/common/Navbar'
+import React from "react";
+import Navbar from "../components/common/Navbar";
 
 const Packages: React.FC = () => {
-
   return (
-     <section className="w-full">
-        <Navbar/>
+    <div className="font-[roboto]">
+      <section className="w-full">
+        <Navbar />
       </section>
-  )
-}
+    </div>
+  );
+};
 
-export default Packages
+export default Packages;

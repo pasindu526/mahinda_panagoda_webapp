@@ -158,26 +158,46 @@ const PublicFigures = () => {
   const handleShowMoreMobile = () => {
     if (mobileVisibleCount >= testimonials.length) {
       setMobileVisibleCount(4);
-    
     } else {
       setMobileVisibleCount((prev) => Math.min(prev + 2, testimonials.length));
-      
     }
   };
-
 
   const isAllVisibleDesktop = visibleCount >= testimonials.length;
   const isAllVisibleMobile = mobileVisibleCount >= testimonials.length;
 
   useEffect(() => {
+    let scrollY = 0;
+
     if (selectedCard) {
+      // Save current scroll position
+      scrollY = window.scrollY;
+
+      // Freeze the body in place
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
       document.body.style.overflow = "hidden";
+      document.body.style.width = "100%";
     } else {
-      document.body.style.overflow = "auto";
+      // Restore scroll position
+      const y = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.overflow = "";
+      document.body.style.width = "";
+      window.scrollTo(0, parseInt(y || "0") * -1);
     }
 
     return () => {
-      document.body.style.overflow = "auto";
+      // Component unmounts with modal open
+      const y = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.overflow = "";
+      document.body.style.width = "";
+      if (y) window.scrollTo(0, parseInt(y || "0") * -1);
     };
   }, [selectedCard]);
 
@@ -185,10 +205,10 @@ const PublicFigures = () => {
     <>
       {/* Heading */}
       <div className="mb-6 text-center">
-        <h1 className="text-sm font-belda text-ternary/70 mb-2 uppercase tracking-wider">
+        <h1 className="text-xs font-belda text-ternary/70 mb-1 lg:mb-2 uppercase tracking-wider">
           Testimonials
         </h1>
-        <h1 className="md:text-5xl text-3xl leading-[41px] md:leading-[62px] font-belda font-semibold">
+        <h1 className="lg:text-5xl md:text-3xl text-2xl leading-[41px] md:leading-[62px]  font-belda font-semibold">
           Public Figures
         </h1>
       </div>
@@ -248,11 +268,10 @@ const PublicFigures = () => {
                     <p className="text-lg font-light mt-3 mb-5">{item.date}</p>
                   </div>
 
-{/* Overlay for last visible row */}
-{idx >= startOfLastRow && (
-  <div className="absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-white to-transparent pointer-events-none z-40"></div>
-)}
-
+                  {/* Overlay for last visible row */}
+                  {idx >= startOfLastRow && (
+                    <div className="absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-white to-transparent pointer-events-none z-40"></div>
+                  )}
                 </div>
               </div>
             );
@@ -276,86 +295,90 @@ const PublicFigures = () => {
           </span>
         </div>
       </div>
-{/* MOBILE + TABLET */}
-<div className="block lg:hidden">
-  <div className="grid grid-cols-2 gap-2 md:gap-6 w-full">
-    {testimonials.slice(0, mobileVisibleCount).map((item, idx) => {
-      const itemsPerRow = 2; // two columns on mobile/tablet
-      const totalVisible = mobileVisibleCount;
-      const startOfLastRow = totalVisible - (totalVisible % itemsPerRow || itemsPerRow);
+      {/* MOBILE + TABLET */}
+      <div className="block lg:hidden">
+        <div className="grid grid-cols-2 gap-2 md:gap-6 gap-y-2 w-full">
+          {testimonials.slice(0, mobileVisibleCount).map((item, idx) => {
+            const itemsPerRow = 2; // two columns on mobile/tablet
+            const totalVisible = mobileVisibleCount;
+            const startOfLastRow =
+              totalVisible - (totalVisible % itemsPerRow || itemsPerRow);
 
-      const isLastVisibleRow = idx >= startOfLastRow;
+            const isLastVisibleRow = idx >= startOfLastRow;
 
-      return (
-        <div
-          key={item.id}
-          onClick={() => setSelectedCard(item)}
-          className="rounded-xl flex flex-col items-center text-center relative overflow-hidden "
-        >
-          <div className="w-full relative aspect-[5/4] md:aspect-[6/6] pt-1">
-            {/* Background */}
-            <div
-              className="absolute inset-0 bg-cover bg-center opacity-40"
-              style={{ backgroundImage: `url(${bg})` }}
-            ></div>
+            return (
+              <div
+                key={item.id}
+                onClick={() => setSelectedCard(item)}
+                className="rounded-xl flex flex-col items-center text-center relative overflow-hidden"
+              >
+                <div className="w-full relative h-auto md:aspect-[6/6] pt-1">
+                  {/* Background */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center opacity-40"
+                    style={{ backgroundImage: `url(${bg})` }}
+                  ></div>
 
-            {/* Maximize icon */}
-            <button
-              onClick={() => setSelectedCard(item)}
-              className="absolute top-3 right-2 p-1.5 rounded-lg border-2 border-secondary text-secondary cursor-pointer z-50"
-            >
-              <Maximize2 size={14} />
-            </button>
+                  {/* Maximize icon */}
+                  <button
+                    onClick={() => setSelectedCard(item)}
+                    className="absolute top-3 right-2 p-1.5 rounded-lg border-2 border-secondary text-secondary cursor-pointer z-10"
+                  >
+                    <Maximize2 size={14} />
+                  </button>
 
-            {/* Card */}
-            <div className="relative z-10 flex flex-col items-center h-full p-5">
-              <div className="relative w-24 h-30 mb-4 md:w-38 md:h-48">
-                <img
-                  src={item.photo}
-                  alt={item.name}
-                  className="w-[66%] h-[68%] object-cover rounded-full absolute grayscale-50 top-4 left-1/2 transform -translate-x-1/2"
-                />
-                <div className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none translate-y-7.5 -translate-x-[1%]">
-                  <Lottie animationData={flame} loop className="w-10 h-8" />
+                  {/* Card */}
+                  <div className="relative z-10 flex flex-col items-center h-full p-5">
+                    <div className="relative w-24 h-30 mb-4 md:w-38 md:h-48">
+                      <img
+                        src={item.photo}
+                        alt={item.name}
+                        className="w-[66%] h-[68%] object-cover rounded-full absolute grayscale-50 top-4 left-1/2 transform -translate-x-1/2"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none translate-y-7.5 -translate-x-[1%]">
+                        <Lottie
+                          animationData={flame}
+                          loop
+                          className="w-10 h-8"
+                        />
+                      </div>
+                      <img
+                        src={frame}
+                        alt="frame"
+                        className="absolute inset-0 w-full h-full pointer-events-none z-30"
+                      />
+                    </div>
+                    <h3 className="text-sm">{item.name}</h3>
+                    <p className="text-xs font-light mt-3 mb-5">{item.date}</p>
+                  </div>
+
+                  {/* Overlay */}
+                  {isLastVisibleRow && (
+                    <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-40"></div>
+                  )}
                 </div>
-                <img
-                  src={frame}
-                  alt="frame"
-                  className="absolute inset-0 w-full h-full pointer-events-none z-30"
-                />
               </div>
-              <h3 className="text-sm">{item.name}</h3>
-              <p className="text-xs font-light mt-3 mb-5">{item.date}</p>
-            </div>
-
-            {/* Overlay */}
-            {isLastVisibleRow && (
-              <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-40"></div>
-            )}
-          </div>
+            );
+          })}
         </div>
-      );
-    })}
-  </div>
 
-  {/* Show more / less */}
-  <div
-    onClick={handleShowMoreMobile}
-    className="flex flex-col items-center cursor-pointer mt-6"
-  >
-    <img
-      src={arrow}
-      alt="arrow"
-      className={`w-10 h-10 transition-transform duration-300 ${
-        isAllVisibleMobile ? "rotate-180" : ""
-      }`}
-    />
-    <span className="text-lg underline">
-      {isAllVisibleMobile ? "Show Less Figures" : "Show More Figures"}
-    </span>
-  </div>
-</div>
-
+        {/* Show more / less */}
+        <div
+          onClick={handleShowMoreMobile}
+          className="flex flex-col items-center cursor-pointer mt-6"
+        >
+          <img
+            src={arrow}
+            alt="arrow"
+            className={`w-10 h-10 transition-transform duration-300 ${
+              isAllVisibleMobile ? "rotate-180" : ""
+            }`}
+          />
+          <span className="text-lg underline">
+            {isAllVisibleMobile ? "Show Less Figures" : "Show More Figures"}
+          </span>
+        </div>
+      </div>
 
       {/*  DESKTOP + TABLET MODAL  */}
       {selectedCard && (
