@@ -7,10 +7,10 @@ const VisionMission: React.FC = () => {
         <div className="w-5/6 mx-auto grid md:grid-cols-2 gap-10 relative">
           {/* Vision Card */}
           <div className="bg-primary rounded-lg p-8 text-center md:text-left lg:h-[400px] z-10 relative">
-            <p className="text-sm text-ternary/70 text-center font-[belda] uppercase mb-4 mt-6 tracking-wider">
+            <p className="text-xs lg:text-sm text-center font-belda text-ternary/70 mb-1 md:mb-3 lg:mb-4 mt-6 uppercase tracking-[2px] md:tracking-[3px]">
               Our Vision
             </p>
-            <h2 className="text-2xl md:text-4xl text-center font-[belda] font-semibold mb-4">
+            <h2 className="text-2xl md:text-4xl text-center font-belda font-semibold mb-4">
               Guiding Tomorrow
             </h2>
             <p className="text-ternery text-2xl font-light text-center mt-10 leading-normal">
@@ -20,10 +20,10 @@ const VisionMission: React.FC = () => {
           </div>
           {/* Mission Card */}
           <div className="bg-white/90 rounded-lg p-8 px-4 text-center md:text-left relative z-12">
-            <p className="text-sm text-ternary/70 text-center font-[belda] uppercase mb-4 mt-6 tracking-wider">
+            <p className="text-xs lg:text-sm text-center font-belda text-ternary/70 mb-1 md:mb-3 lg:mb-4 mt-6 uppercase tracking-[2px] md:tracking-[3px]">
               Our Mission
             </p>
-            <h2 className="text-2xl md:text-4xl text-center font-[belda] font-semibold mb-4">
+            <h2 className="text-2xl md:text-4xl text-center font-belda font-semibold mb-4">
               Serving Today
             </h2>
             <p className="text-ternery text-2xl font-light text-center mt-10 leading-normal w-xl">
@@ -46,10 +46,10 @@ const VisionMission: React.FC = () => {
         <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative md:w-5/6 ">
           {/* Vision Card */}
           <div className="bg-primary rounded-lg p-6 text-center relative z-10">
-            <p className="text-sm text-ternary/70 text-center font-[belda] uppercase mb-4 mt-4 tracking-wider">
+            <p className="text-[10px] lg:text-sm text-center font-belda text-ternary/70 mb-1 md:mb-2 lg:mb-4 mt-6 uppercase tracking-[2px] md:tracking-[3px]">
               Our Vision
             </p>
-            <h2 className="text-2xl text-center font-[belda] font-semibold mb-4">
+            <h2 className="text-2xl text-center font-belda font-semibold mb-4">
               Guiding Tomorrow
             </h2>
             <p className="text-ternery text-lg font-light text-center mt-6 leading-relaxed">
@@ -60,10 +60,10 @@ const VisionMission: React.FC = () => {
 
           {/* Mission Card */}
           <div className="bg-white/90 rounded-lg p-6 text-center relative z-11">
-            <p className="text-sm text-ternary/70 text-center font-[belda] uppercase mb-4 mt-4 tracking-wider">
+            <p className="text-[10px] lg:text-sm text-center font-belda text-ternary/70 mb-1 md:mb-2 lg:mb-4 mt-6 uppercase tracking-[2px] md:tracking-[3px]">
               Our Mission
             </p>
-            <h2 className="text-2xl text-center font-[belda] font-semibold mb-4">
+            <h2 className="text-2xl text-center font-belda font-semibold mb-4">
               Serving Today
             </h2>
             <p className="text-ternery text-lg font-light text-center mt-6 leading-relaxed">
