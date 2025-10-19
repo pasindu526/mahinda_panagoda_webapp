@@ -1,1 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Belda:wght@800&display=swap');
+
 @import "tailwindcss";
+@import "./theme.css";
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+
+@font-face {
+  font-family: "Belda";
+  src: url("./assets/fonts/belda-extra-bold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+.font-belda {
+  font-family: "Belda",  sans-serif;
+}
+

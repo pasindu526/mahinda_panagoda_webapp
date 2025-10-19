@@ -1,0 +1,38 @@
+@theme {
+    --color-primary: #ECE5A7; 
+    --color-secondary: #005B32;
+    --color-ternary: #191818;
+    --color-background: #FFFFFF;
+}
+
+
+/* global.css or Tailwind base */
+html {
+  overflow-y: scroll; /* always show vertical scrollbar */
+}
+
+html.no-scroll,
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh;
+}
+
+/*
+Mobile Responsive
+Hero Section 
+ height
+    sm:h-[400px]
+
+ h1
+    sm:text-[40px]
+    sm:leading-[50px]
+ p
+    sm:text-[16px]
+    sm:leading-[20px]
+
+Button
+    sm:font-[20px]
+    sm:py-4
+    sm:px-8
+    sm:w-fit
+*/
