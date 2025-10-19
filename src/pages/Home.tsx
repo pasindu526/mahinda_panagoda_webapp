@@ -19,7 +19,7 @@ const Home: React.FC = () => {
         <Hero />
       </section>
 
-      <section className="w-11/12 lg:w-5/6 mx-auto mt-20 lg:mt-30">
+      <section className="w-11/12 md:w-5/6 mx-auto mt-20 lg:mt-30">
         <KeyServices />
       </section>
 
@@ -27,7 +27,7 @@ const Home: React.FC = () => {
         <BuySteps />
       </section>
 
-      <section className="w-11/12 lg:w-5/6 mx-auto mt-20 lg:mt-30">
+      <section className="w-11/12 md:w-5/6 mx-auto mt-20 lg:mt-30">
         <Packages />
       </section>
 
@@ -35,7 +35,7 @@ const Home: React.FC = () => {
         <Consultation />
       </section>
 
-      <section className="w-11/12 lg:w-5/6 mx-auto mt-20 lg:mt-30">
+      <section className="w-11/12 md:w-5/6 mx-auto mt-20 lg:mt-30">
         <Testimonials />
       </section>
 

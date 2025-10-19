@@ -7,7 +7,7 @@ import step4 from "../../assets/icon/step-4.svg";
 
 const BuySteps: React.FC = () => {
   return (
-    <div className="w-11/12 lg:w-5/6 mx-auto flex flex-col gap-6 lg:gap-10">
+    <div className="w-11/12 md:w-5/6 mx-auto flex flex-col gap-6 lg:gap-10">
       {/* heading */}
       <div className="text-center">
         <h1 className="text-xs lg:text-sm font-belda text-ternary/70 mb-1 md:mb-3 lg:mb-4 uppercase tracking-[2px] md:tracking-[3px]">
