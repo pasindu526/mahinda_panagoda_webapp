@@ -7,7 +7,7 @@ import Footer from "../components/common/Footer";
 const PublicFigure: React.FC = () => {
   return (
     <div>
-      <section className="w-full bg-amber-700">
+      <section className="w-full">
         <Navbar />
       </section>
       <section className="w-full lg:mb-30 mb-20">
