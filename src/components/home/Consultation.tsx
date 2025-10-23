@@ -66,12 +66,9 @@ const Consultation: React.FC = () => {
         </div>
 
         {/* right side image */}
-        <div className="flex md:hidden lg:flex relative w-2/5 md:w-5/12 lg:w-1/2">
-          <img
-            src={ConsultationImg}
-            className="w-full h-full object-cover rounded-sm md:rounded-lg"
-          />
-          <div className="absolute flex items-center bottom-0 z-10 backdrop-blur-xs bg-gradient-to-t from-black/90 to-transparent w-full h-1/5 rounded-b-sm md:rounded-b-lg">
+        <div className="flex md:hidden lg:flex relative w-2/5 md:w-5/12 lg:w-1/2 rounded-sm md:rounded-lg object-cover overflow-hidden">
+          <img src={ConsultationImg} className="w-full h-full object-cover" />
+          <div className="absolute flex items-center bottom-0 z-10 backdrop-blur-xs bg-gradient-to-t from-black/90 to-transparent w-full h-1/5">
             <img src={MPWhite} />
           </div>
         </div>
@@ -86,7 +83,7 @@ const Consultation: React.FC = () => {
           advice, plan ahead with confidence, and ensure every detail is handled
           with dignity and care.
         </p>
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-row gap-8 ">
           <button
             onClick={() => (window.location.href = "tel:+94711000700")}
             className="flex items-center gap-1 md:gap-2.5 px-4 lg:px-6 py-2.5 lg:py-3.5 rounded-lg text-ternary text-xs md:text-base lg:text-lg font-medium bg-primary hover:bg-primary/90 cursor-pointer"
