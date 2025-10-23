@@ -65,7 +65,7 @@ const Packages: React.FC = () => {
         {prePackage.map((Package) => (
           <div className="bg-[#F8F8F8] p-2.5 rounded-lg row-span-2 h-auto shadow-[0_2px_6px_0_rgba(0,0,0,0.15)]">
             {/* package image */}
-            <div className="relative mb-4 rounded-lg h-48 md:h-[54%] lg:h-88 object-cover overflow-hidden">
+            <div className="relative mb-4 rounded-lg h-48 md:h-[53%] lg:h-88 object-cover overflow-hidden">
               <img
                 src={Package.img}
                 alt={Package.name}
@@ -82,7 +82,7 @@ const Packages: React.FC = () => {
             </div>
             {/* package details */}
             <div className="flex flex-col px-1.5 gap-1 md:gap-5 mb-6 md:mb-10">
-              <h1 className="text-xl md:text-2xl font-medium">
+              <h1 className="text-xl md:text-[22px] lg:text-2xl font-medium">
                 {Package.name}
               </h1>
               <p className="mt-2 text-ternary text-base md:text-lg font-light text-justify">
@@ -96,7 +96,7 @@ const Packages: React.FC = () => {
                 onClick={() => {
                   navigate("/pre-arrangement-packages");
                 }}
-                className="bg-primary text-ternary text-xs md:text-sm font-medium  px-5 py-2.5 rounded-lg h-11 whitespace-nowrap"
+                className="bg-primary text-ternary text-xs md:text-sm font-medium px-4 lg:px-5 py-3 md:py-2.5 lg:py-2.5 rounded-lg lg:h-11 whitespace-nowrap"
               >
                 View Packages
               </button>
@@ -108,7 +108,7 @@ const Packages: React.FC = () => {
         {packages.map((Package) => (
           <div className="bg-[#F8F8F8] p-2.5 rounded-lg h-full shadow-[0_2px_6px_0_rgba(0,0,0,0.15)]">
             {/* package image */}
-            <div className="relative mb-4 h-48 md:h-52">
+            <div className="relative mb-4 h-48 lg:h-52">
               <img
                 src={Package.img}
                 alt={Package.name}
@@ -123,16 +123,16 @@ const Packages: React.FC = () => {
                 Packages
               </div>
             </div>
-            <div className="flex gap-4 px-1.5 pb-1 items-start justify-between">
+            <div className="flex gap-6 md:gap-4 px-1.5 pb-1 items-start justify-between">
               {/* package name */}
-              <h1 className="text-lg md:text-xl font-medium">{Package.name}</h1>
+              <h1 className="text-lg lg:text-xl font-medium">{Package.name}</h1>
               {/* view button */}
               <div className="flex items-end mt-auto">
                 <button
                   onClick={() => {
                     navigate("/packages");
                   }}
-                  className="bg-primary text-ternary text-xs md:text-sm font-medium  px-5 py-2.5 rounded-lg h-11 whitespace-nowrap"
+                  className="bg-primary text-ternary text-xs md:text-sm font-medium  px-4 lg:px-5 py-3 md:py-2.5 lg:py-2.5 rounded-lg lg:h-11 whitespace-nowrap"
                 >
                   View Packages
                 </button>
