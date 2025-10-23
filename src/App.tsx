@@ -7,6 +7,7 @@ import Parlours from "./pages/Parlours";
 import Packages from "./pages/Packages";
 import Home from "./pages/Home";
 import Guidlines from "./pages/Guidlines";
+import PreArrangements from "./pages/PreArrangements";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/parlours" element={<Parlours />} />
         <Route path="/packages" element={<Packages />} />
+        <Route path="/pre-arrangement-packages" element={<PreArrangements />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/publicfigure" element={<PublicFigure />} />
         <Route path="/guideline" element={<Guidlines />} />
