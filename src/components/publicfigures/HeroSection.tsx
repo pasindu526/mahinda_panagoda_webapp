@@ -16,7 +16,9 @@ const HeroSection: React.FC = () => {
           <div className="w-11/12 md:w-5/6 mx-auto py-4 space-y-2">
             <h1 className="text-2xl  lg:text-5xl md:text-4xl leading-[34px] lg:leading-[62px] font-bold font-belda text-white text-center lg:text-left">
               Memories Of{" "}
-              <span className=" text-primary">Notable Personalities</span>
+              <span className=" text-primary font-bold font-belda">
+                Notable Personalities
+              </span>
             </h1>
 
             <p className="text-sm lg:text-xl leading-[20px]  lg:leading-[24px] text-white pb-2 sm:pb-4 text-center lg:text-left">

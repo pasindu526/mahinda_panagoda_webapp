@@ -9,7 +9,7 @@ import Footer from "../components/common/Footer";
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="font-[roboto]">
+    <div>
       <section className="w-full">
         <Navbar />
       </section>
@@ -17,19 +17,19 @@ const AboutUs: React.FC = () => {
         <HeroSection />
       </section>
       <section className="w-full lg:mb-30 mb-20">
-       <OurStory/>
+        <OurStory />
       </section>
       <section className="w-full lg:mb-30 mb-20">
         <VisionMission />
       </section>
       <section className="w-full lg:mb-30 mb-20">
-        <OurDifference/>
+        <OurDifference />
       </section>
-       <section className="w-full lg:mb-30 mb-20">
-        <Leadership/>
+      <section className="w-full lg:mb-30 mb-20">
+        <Leadership />
       </section>
-         <section className="w-full ">
-        <Footer/>
+      <section className="w-full ">
+        <Footer />
       </section>
     </div>
   );

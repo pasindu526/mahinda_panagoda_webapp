@@ -6,9 +6,9 @@ import Footer from "../components/common/Footer";
 
 const ContactUs: React.FC = () => {
   return (
-    <div className="font-[roboto]">
+    <div>
       <section className="w-full">
-        <Navbar/>
+        <Navbar />
       </section>
       <section className="w-full lg:mb-30 mb-20">
         <HeroSection />
@@ -18,7 +18,7 @@ const ContactUs: React.FC = () => {
         <ContactForm />
       </section>
       <section className="w-full">
-        <Footer/>
+        <Footer />
       </section>
     </div>
   );

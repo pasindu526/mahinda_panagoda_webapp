@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { X } from "lucide-react";
 import { RiMenu3Fill } from "react-icons/ri";
-import logo from "../../assets/img/navbar/logo.svg";
-import sublogo from "../../assets/img/navbar/sublogo.svg";
+import logo from "../../assets/img/navbar/main_logo.png";
+import sublogo from "../../assets/img/navbar/secondary_logo.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -45,33 +45,33 @@ const Navbar: React.FC = () => {
   }, [lastScrollY]);
 
   return (
-<nav
-  className={`w-full text-white z-20 transition-all duration-300
+    <nav
+      className={`w-full text-white z-20 transition-all duration-300
     ${isScrolled ? "lg:fixed lg:bg-black py-3" : "absolute py-12 pt-3"}
   `}
-  style={{
-    transform: isVisible ? "translateY(0)" : "translateY(-100%)",
-    transition: "transform 0.3s ease-in-out",
-  }}
->
-  {/* Gradient Overlay */}
-  {!isScrolled && (
-    <div className="absolute inset-0 bg-gradient-to-b from-black from-10% via-black via-10% to-transparent -z-10"></div>
-  )}
+      style={{
+        transform: isVisible ? "translateY(0)" : "translateY(-100%)",
+        transition: "transform 0.3s ease-in-out",
+      }}
+    >
+      {/* Gradient Overlay */}
+      {!isScrolled && (
+        <div className="absolute inset-0 bg-gradient-to-b from-black from-0% via-black/95 via-30% to-transparent to-100% lg:h-5/6 -z-10"></div>
+      )}
       {/* Navbar content */}
-      <div className="w-5/6 mx-auto flex items-center justify-between px-2 md:px-14 lg:px-10">
+      <div className="w-11/12 md:w-5/6 mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center pt-2 lg:pt-0 -translate-x-10">
+        <div className="flex items-center pt-2 lg:pt-0">
           <NavLink to="/">
             <img
               src={logo}
               alt="Mahinda Panagoda Logo"
-              className="hidden lg:block h-auto w-auto"
+              className="hidden lg:block h-20 w-auto"
             />
             <img
               src={sublogo}
               alt="Mahinda Panagoda Mobile Logo"
-              className="block lg:hidden w-64 h-auto md:w-auto md:h-auto md:-translate-x-10"
+              className="block lg:hidden w-64 h-auto md:w-80"
             />
           </NavLink>
         </div>
@@ -96,10 +96,10 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Desktop Buttons */}
-        <div className="hidden lg:flex space-x-8 translate-x-12">
+        <div className="hidden lg:flex space-x-6">
           <button
             onClick={() => (window.location.href = "tel:+94711000700")}
-            className="px-4 py-2.5 bg-primary hover:bg-primary/70 text-black font-semibold rounded-lg text-lg"
+            className="px-4 py-2.5 bg-primary hover:bg-primary/90 text-black font-semibold rounded-lg text-lg"
           >
             +94 71 1000 700
           </button>
@@ -109,10 +109,10 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center translate-x-6 md:translate-x-16">
+        <div className="lg:hidden flex items-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white text-2xl"
+            className="text-white text-2xl md:text-4xl"
           >
             <RiMenu3Fill />
           </button>
@@ -148,10 +148,10 @@ const Navbar: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex flex-row mt-6 w-11/12 mx-auto justify-between items-center">
+          <div className="flex flex-row mt-6 w-11/12 mx-auto justify-between md:justify-start gap-4 items-center">
             <button
               onClick={() => (window.location.href = "tel:+94711000700")}
-              className="px-6 py-3 bg-primary hover:bg-primary/70 text-black font-bold rounded-lg text-lg"
+              className="px-6 py-3 bg-primary hover:bg-primary/90 text-black font-semibold rounded-lg text-lg"
             >
               +94 71 1000 700
             </button>

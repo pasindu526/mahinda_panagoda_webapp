@@ -44,10 +44,10 @@ const VideoCollection: React.FC = () => {
     <div className="w-full mx-auto text-ternary">
       {/* Header */}
       <div className="mb-6 text-center">
-        <h1 className="text-xs font-belda text-ternary/70 mb-1 lg:mb-2 uppercase tracking-wider">
+        <h1 className="text-xs lg:text-sm font-belda text-ternary/70 mb-1 md:mb-3 lg:mb-4 uppercase tracking-[2px] md:tracking-[3px]">
           Stories in motion
         </h1>
-        <h1 className="lg:text-5xl md:text-3xl text-2xl leading-[41px] md:leading-[62px]  font-belda font-semibold">
+        <h1 className="text-2xl md:text-3xl lg:text-5xl leading-[41px] lg:leading-[62px] font-belda font-semibold">
           Video Collections
         </h1>
       </div>
@@ -115,38 +115,39 @@ const VideoCollection: React.FC = () => {
         )}
       </div>
 
-   {/* Mobile Video Grid */}
-<div className="grid grid-cols-2 gap-3 md:hidden">
-  {videos.slice(0, visibleCountMobile).map((video, i, arr) => {
-    const videosPerRow = 2;
+      {/* Mobile Video Grid */}
+      <div className="grid grid-cols-2 gap-3 md:hidden">
+        {videos.slice(0, visibleCountMobile).map((video, i, arr) => {
+          const videosPerRow = 2;
 
-    // Calculate index where last row starts dynamically
-    const lastRowStart = arr.length - (arr.length % videosPerRow || videosPerRow);
+          // Calculate index where last row starts dynamically
+          const lastRowStart =
+            arr.length - (arr.length % videosPerRow || videosPerRow);
 
-    const isLastRow = i >= lastRowStart;
+          const isLastRow = i >= lastRowStart;
 
-    return (
-      <div
-        key={i}
-        className="relative aspect-video w-full overflow-hidden rounded-lg cursor-pointer"
-        onClick={() => openPopup(video)}
-      >
-        <iframe
-          className="w-full h-full rounded-lg cursor-pointer"
-          src={video}
-          title={`YouTube video ${i + 1}`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+          return (
+            <div
+              key={i}
+              className="relative aspect-video w-full overflow-hidden rounded-lg cursor-pointer"
+              onClick={() => openPopup(video)}
+            >
+              <iframe
+                className="w-full h-full rounded-lg cursor-pointer"
+                src={video}
+                title={`YouTube video ${i + 1}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
 
-        {/* Gradient overlay at bottom for last row */}
-        {isLastRow && (
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white to-transparent rounded-b-lg z-20"></div>
-        )}
+              {/* Gradient overlay at bottom for last row */}
+              {isLastRow && (
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white to-transparent rounded-b-lg z-20"></div>
+              )}
+            </div>
+          );
+        })}
       </div>
-    );
-  })}
-</div>
 
       {/* Mobile Show More / Show Less Buttons */}
       <div className="md:hidden flex justify-center gap-7 mt-4">

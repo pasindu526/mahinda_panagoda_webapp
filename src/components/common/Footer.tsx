@@ -1,6 +1,6 @@
 import React from "react";
 
-import logo from "../../assets/img/footer/sublogo.svg";
+import logo from "../../assets/img/navbar/secondary_logo.png";
 import bg from "../../assets/img/footer/bg.svg";
 import { FiPhone, FiMapPin, FiMail } from "react-icons/fi";
 
@@ -64,18 +64,18 @@ const Footer: React.FC = () => {
         <p className="w-2/3 text-xl  md:text-3xl   font-semibold font-belda text-secondary">
           We Are Always Here When You Need Us
         </p>
-        <p className="hidden md:block w-5/6 md:text-xl text-base text- font-light px-4 mt-4">
+        <p className="hidden md:block w-5/6 md:text-xl text-base font-light lg:px-4 mt-4">
           We provide 24/7 assistance, ensuring you can reach us any time of the
           day or night. Our dedicated staff is always available to guide you,
           answer your questions, or offer compassionate support.
         </p>
-        <p className="block md:hidden w-5/6 md:text-xl text-base text- font-light px-4 mt-4">
+        <p className="block md:hidden w-5/6 md:text-xl text-base text- font-light mt-2">
           We provide 24/7 assistance, ensuring you can reach us any time of the
           day or night.
         </p>
         <button
           onClick={() => (window.location.href = "tel:+94711000700")}
-          className="px-12 py-3 text-lg bg-primary hover:bg-primary/70 text-ternary rounded-lg mt-8 mb-8 cursor-pointer "
+          className="px-8 lg:px-12 py-2.5 lg:py-3 text-base lg:text-lg bg-primary hover:bg-primary/90 text-ternary rounded-lg mt-8 mb-8 cursor-pointer "
         >
           Call Now
         </button>
@@ -90,13 +90,13 @@ const Footer: React.FC = () => {
         {/* Main Footer Content */}
         <div className="container md:py-12 md:w-5/6 mx-auto w-11/12">
           {/* Desktop Layout */}
-          <div className="hidden lg:grid lg:grid-cols-4 gap-8 justify-items-center">
+          <div className="hidden lg:grid lg:grid-cols-4 gap-8 justify-items-center lg:translate-x-5">
             {/* Logo & Description */}
-            <div className="text-left lg:w-[330px] -translate-y-5 translate-x-5">
+            <div className="text-left lg:w-[360px] -translate-y-5 translate-x-5">
               <img
                 src={logo}
                 alt="Logo"
-                className="mx-auto object-contain w-full "
+                className="object-contain w-full my-5"
               />
               <p className="text-lg text-white font-light leading-[26px] lg:text-justify text-justify px-4 lg:px-0 ">
                 Mahinda Panagoda Funeral Directors was inaugurated in 2000 with
@@ -249,36 +249,34 @@ const Footer: React.FC = () => {
                   </a>
                 ))}
               </div>
-
-             
             </div>
-             {/* Social Icons + Privacy Policy Row */}
-              <div className="flex justify-between items-center mt-20">
-                {/* Social Icons - Left */}
-                <div className="flex space-x-3 mb-2">
-                  {socialIcons.map((icon, idx) => (
-                    <a
-                      key={idx}
-                      href={icon.link}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <img
-                        src={icon.src}
-                        alt={icon.alt}
-                        className="w-6 h-6 hover:opacity-80 transition"
-                      />
-                    </a>
-                  ))}
-                </div>
-
-                {/* Privacy Policy - Right */}
-                <div className="text-right">
-                  <a href="#" className="hover:underline text-xs text-white/75">
-                    Privacy Policy | Terms of Services
+            {/* Social Icons + Privacy Policy Row */}
+            <div className="flex justify-between items-center mt-20">
+              {/* Social Icons - Left */}
+              <div className="flex space-x-3 mb-2">
+                {socialIcons.map((icon, idx) => (
+                  <a
+                    key={idx}
+                    href={icon.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img
+                      src={icon.src}
+                      alt={icon.alt}
+                      className="w-6 h-6 hover:opacity-80 transition"
+                    />
                   </a>
-                </div>
+                ))}
               </div>
+
+              {/* Privacy Policy - Right */}
+              <div className="text-right">
+                <a href="#" className="hover:underline text-xs text-white/75">
+                  Privacy Policy | Terms of Services
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         {/* Tablet Layout */}
@@ -370,12 +368,12 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="relative bg-gradient-to-b from-transparent to-secondary  ">
+        <div className="relative bg-gradient-to-b from-transparent from-20% to-secondary to-100%  ">
           {/* Top line */}
           <div className="absolute top-4 left-1/2 transform -translate-x-1/2 md:w-5/6 w-11/12 mx-auto h-px bg-white"></div>
 
           {/* Main content */}
-          <div className="w-5/6 mx-auto container flex flex-col sm:flex-col md:flex-row items-center justify-between py-4 text-xs text-white/80 space-y-2 md:space-y-0">
+          <div className="w-5/6 mx-auto container flex flex-col sm:flex-col md:flex-row items-center justify-between py-4 px-0.5 text-xs text-white/80 space-y-2 md:space-y-0">
             {/* Left content */}
             <div className="flex items-center space-x-2 ml-6 lg:ml-0 md:ml-0 md:space-x-4 lg:pt-0 pt-3 text-xs -translate-x-0.5 mt-4">
               <span>All rights reserved | Developed by</span>

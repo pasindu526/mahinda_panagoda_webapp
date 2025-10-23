@@ -6,9 +6,9 @@ import Footer from "../components/common/Footer";
 
 const PublicFigure: React.FC = () => {
   return (
-    <div className="font-[roboto]">
-      <section className="w-full bg-amber-700">
-        <Navbar/>
+    <div>
+      <section className="w-full">
+        <Navbar />
       </section>
       <section className="w-full lg:mb-30 mb-20">
         <HeroSection />
@@ -19,7 +19,7 @@ const PublicFigure: React.FC = () => {
       </section>
 
       <section className="w-full">
-        <Footer/>
+        <Footer />
       </section>
     </div>
   );

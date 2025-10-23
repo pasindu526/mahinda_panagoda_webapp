@@ -8,10 +8,10 @@ const OurStory: React.FC = () => {
   return (
     <section className=" bg-white w-11/12 md:w-5/6 lg:w-5/6 mx-auto">
       <div className="mb-6 text-center">
-        <h1 className="text-xs font-belda text-ternary/70 mb-1 lg:mb-2 uppercase tracking-wider">
+        <h1 className="text-xs lg:text-sm font-belda text-ternary/70 mb-1 md:mb-3 lg:mb-4 uppercase tracking-[2px] md:tracking-[3px]">
           Who Are We
         </h1>
-        <h1 className="lg:text-5xl md:text-3xl text-2xl leading-[41px] md:leading-[62px]  font-belda font-semibold">
+        <h1 className="text-2xl md:text-3xl lg:text-5xl leading-[41px] lg:leading-[62px] font-belda font-semibold">
           What Is Our Story
         </h1>
       </div>

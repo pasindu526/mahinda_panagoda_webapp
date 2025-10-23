@@ -3,7 +3,7 @@ import Navbar from "../components/common/Navbar";
 
 const Packages: React.FC = () => {
   return (
-    <div className="font-[roboto]">
+    <div>
       <section className="w-full">
         <Navbar />
       </section>
