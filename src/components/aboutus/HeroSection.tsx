@@ -12,7 +12,7 @@ const HeroSection: React.FC = () => {
         />
 
         {/* Overlay */}
-        <div className="absolute bottom-0 left-0 w-full h-[70%] bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0"></div>
+        <div className="absolute bottom-0 left-0 w-full h-[70%] bg-gradient-to-t from-black via-black/60 to-transparent z-0"></div>
 
         {/* Text content */}
         <div className="absolute bottom-0 w-full z-10">
