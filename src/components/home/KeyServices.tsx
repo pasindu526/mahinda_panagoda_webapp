@@ -17,16 +17,16 @@ const KeyServices: React.FC = () => {
 
       <div className="flex flex-col-reverse md:flex-col lg:flex-row gap-12 lg:gap-20">
         <div className="w-full lg:w-2/3">
-          <div className="relative">
+          <div className="relative pb-10 md:pb-20">
             <img
               src={SvcLeft}
               alt=""
-              className="w-5/6 h-auto top-0 left-0 pb-16 rounded-tl-3xl"
+              className="w-9/12 lg:w-5/6 h-full max-h-3/5 object-cover object-top top-0 left-0 pb-16 rounded-tl-3xl"
             />
             <img
               src={SvcRight}
               alt=""
-              className="absolute w-1/2 h-auto bottom-0 right-0 rounded-tl-3xl rounded-br-3xl border-l-6 border-t-6 border-white"
+              className="absolute w-3/4 md:w-2/3 lg:w-4/5 h-full max-h-3/5 object-cover bottom-0 right-0 rounded-tl-3xl rounded-br-3xl border-l-6 border-t-6 border-white"
             />
           </div>
         </div>
