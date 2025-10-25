@@ -96,7 +96,7 @@ const Packages: React.FC = () => {
                 onClick={() => {
                   navigate("/pre-arrangement-packages");
                 }}
-                className="bg-primary text-ternary text-xs md:text-sm font-medium px-4 lg:px-5 py-3 md:py-2.5 lg:py-2.5 rounded-lg lg:h-11 whitespace-nowrap"
+                className="bg-primary hover:bg-primary/90 cursor-pointer text-ternary text-xs md:text-sm font-medium px-4 lg:px-5 py-3 md:py-2.5 lg:py-2.5 rounded-lg lg:h-11 whitespace-nowrap"
               >
                 View Packages
               </button>
@@ -132,7 +132,7 @@ const Packages: React.FC = () => {
                   onClick={() => {
                     navigate("/packages");
                   }}
-                  className="bg-primary text-ternary text-xs md:text-sm font-medium  px-4 lg:px-5 py-3 md:py-2.5 lg:py-2.5 rounded-lg lg:h-11 whitespace-nowrap"
+                  className="bg-primary hover:bg-primary/90 cursor-pointer text-ternary text-xs md:text-sm font-medium  px-4 lg:px-5 py-3 md:py-2.5 lg:py-2.5 rounded-lg lg:h-11 whitespace-nowrap"
                 >
                   View Packages
                 </button>
