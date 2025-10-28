@@ -22,6 +22,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/publicfigure" element={<PublicFigure />} />
         <Route path="/guideline" element={<Guidlines />} />
+        <Route path="/checkout" element={<Guidlines />} />
       </Routes>
     </Router>
   );
