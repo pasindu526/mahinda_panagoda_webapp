@@ -20,3 +20,11 @@
   font-family: "Belda",  sans-serif;
 }
 
+/* override shadcn class */
+@layer base {
+  body[data-scroll-locked] {
+    --removed-body-scroll-bar-size: 0px !important;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+  }
+}
