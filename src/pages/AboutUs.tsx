@@ -1,16 +1,38 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../components/common/Navbar";
+import HeroSection from "../components/aboutus/HeroSection";
+import VisionMission from "../components/aboutus/VisionMission";
+import OurStory from "../components/aboutus/OurStory";
+import OurDifference from "../components/aboutus/OurDifference";
+import Leadership from "../components/aboutus/Leadership";
+import Footer from "../components/common/Footer";
 
-const AboutUs:React.FC = () => {
+const AboutUs: React.FC = () => {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">
-        About Us Page
-      </h1>
-      <p className="mt-4 text-lg">
-        Welcome to the About Us page. We are dedicated to providing the best service possible.
-      </p>
+      <section className="w-full">
+        <Navbar />
+      </section>
+      <section className="w-full lg:mb-30 mb-20">
+        <HeroSection />
+      </section>
+      <section className="w-full lg:mb-30 mb-20">
+        <OurStory />
+      </section>
+      <section className="w-full lg:mb-30 mb-20">
+        <VisionMission />
+      </section>
+      <section className="w-full lg:mb-30 mb-20">
+        <OurDifference />
+      </section>
+      <section className="w-full lg:mb-30 mb-20">
+        <Leadership />
+      </section>
+      <section className="w-full ">
+        <Footer />
+      </section>
     </div>
-  )
-}
+  );
+};
 
-export default AboutUs
+export default AboutUs;
