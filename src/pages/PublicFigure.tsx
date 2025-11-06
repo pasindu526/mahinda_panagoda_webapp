@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeroSection from "../components/publicfigures/HeroSection";
 import PublicFigures from "../components/publicfigures/CardSection";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 
 const PublicFigure: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <section className="w-full">

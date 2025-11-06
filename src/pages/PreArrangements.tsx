@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/common/Navbar";
 import HeroSection from "../components/PreArrangements/HeroSection";
 import AllPackages from "../components/PreArrangements/AllPackages";
 import Footer from "../components/common/Footer";
 
 const PreArrangements: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       {/* navbar */}

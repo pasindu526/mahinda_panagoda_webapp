@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeroSection from "../components/gallery/HeroSection";
 import ImageCollection from "../components/gallery/ImageCollection";
 import VideoCollection from "../components/gallery/VideoCollection";
@@ -6,6 +6,10 @@ import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 
 const Gallery: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <section className="w-full">

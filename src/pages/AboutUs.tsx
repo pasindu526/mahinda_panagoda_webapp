@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/common/Navbar";
 import HeroSection from "../components/aboutus/HeroSection";
 import VisionMission from "../components/aboutus/VisionMission";
@@ -8,6 +8,10 @@ import Leadership from "../components/aboutus/Leadership";
 import Footer from "../components/common/Footer";
 
 const AboutUs: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <section className="w-full">
