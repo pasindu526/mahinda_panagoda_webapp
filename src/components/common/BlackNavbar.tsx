@@ -1,0 +1,129 @@
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { X } from "lucide-react";
+import { RiMenu3Fill } from "react-icons/ri";
+import logo from "../../assets/img/navbar/main_logo.png";
+import sublogo from "../../assets/img/navbar/secondary_logo.png";
+
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/aboutUs" },
+  { name: "Packages", path: "/packages" },
+  { name: "Parlours", path: "/parlours" },
+  { name: "Gallery", path: "/gallery" },
+  { name: "Contact Us", path: "/contactUs" },
+];
+
+const BlackNavbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <nav className="w-full text-white z-20 transition-all duration-300 lg:fixed bg-black py-3 top-0">
+      {/* Navbar content */}
+      <div className="w-11/12 md:w-5/6 mx-auto flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex items-center pt-2 lg:pt-0">
+          <NavLink to="/">
+            <img
+              src={logo}
+              alt="Mahinda Panagoda Logo"
+              className="hidden lg:block h-20 w-auto"
+            />
+            <img
+              src={sublogo}
+              alt="Mahinda Panagoda Mobile Logo"
+              className="block lg:hidden w-64 h-auto md:w-80"
+            />
+          </NavLink>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex space-x-10 font-light text-lg">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.path}
+              className={({ isActive }) =>
+                `relative inline-block pb-1 ${
+                  isActive
+                    ? "after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-[50%] after:h-[2px] after:bg-white"
+                    : "hover:after:content-[''] hover:after:absolute hover:after:left-0 hover:after:bottom-0 hover:after:w-[50%] hover:after:h-[2px] hover:after:bg-white"
+                }`
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
+        </div>
+
+        {/* Desktop Buttons */}
+        <div className="hidden lg:flex space-x-6">
+          <button
+            onClick={() => (window.location.href = "tel:+94711000700")}
+            className="px-4 py-2.5 bg-primary hover:bg-primary/90 text-black font-semibold rounded-lg text-lg"
+          >
+            +94 71 1000 700
+          </button>
+          <button className="px-7 py-2.5 border-2 border-white rounded-lg text-lg">
+            Login
+          </button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="lg:hidden flex items-center">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-white text-2xl md:text-4xl"
+          >
+            <RiMenu3Fill />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="absolute top-0 left-0 w-full h-[600px] bg-black/90 flex flex-col z-50">
+          <div className="flex justify-end pt-6 w-11/12 mx-auto">
+            <button onClick={() => setIsOpen(false)}>
+              <X size={28} className="text-white" />
+            </button>
+          </div>
+
+          <div className="flex flex-col items-start mt-4 w-11/12 mx-auto">
+            {navLinks.map((link) => (
+              <div key={link.name} className="w-full">
+                <NavLink
+                  to={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `relative block w-fit text-white text-xl py-4 ${
+                      isActive
+                        ? "after:content-[''] after:block after:w-[50%] after:h-[2px] after:bg-white after:mt-1"
+                        : "hover:after:content-[''] hover:after:block hover:w-[50%] hover:h-[2px] hover:bg-white hover:mt-1"
+                    }`
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-row mt-6 w-11/12 mx-auto justify-between md:justify-start gap-4 items-center">
+            <button
+              onClick={() => (window.location.href = "tel:+94711000700")}
+              className="px-6 py-3 bg-primary hover:bg-primary/90 text-black font-semibold rounded-lg text-lg"
+            >
+              +94 71 1000 700
+            </button>
+            <button className="px-14 py-3 border-2 border-white rounded-lg text-lg">
+              Login
+            </button>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default BlackNavbar;

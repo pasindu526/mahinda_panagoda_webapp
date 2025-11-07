@@ -922,9 +922,16 @@ const AllPackages: React.FC = () => {
                       More Details
                     </button>
                     <button
-                      onClick={() => {
-                        navigate("/checkout");
-                      }}
+                      onClick={() =>
+                        navigate("/checkout", {
+                          state: {
+                            selectedPackage: {
+                              ...subPkg,
+                              category: pkg.category,
+                            },
+                          },
+                        })
+                      }
                       className="w-full md:w-full px-2 md:px-4 py-1.5 md:py-2.5 lg:py-2 bg-primary hover:bg-primary/90 md:text-sm lg:text-[13px] rounded-lg cursor-pointer"
                     >
                       Buy Now
@@ -981,9 +988,16 @@ const AllPackages: React.FC = () => {
                   More Details
                 </button>
                 <button
-                  onClick={() => {
-                    navigate("/checkout");
-                  }}
+                  onClick={() =>
+                    navigate("/checkout", {
+                      state: {
+                        selectedPackage: {
+                          ...subPkg,
+                          category: subPkg.category,
+                        },
+                      },
+                    })
+                  }
                   className="w-full md:w-full px-2 md:px-4 py-1.5 md:py-2.5 lg:py-2 bg-primary hover:bg-primary/90 md:text-sm lg:text-[13px] rounded-lg cursor-pointer"
                 >
                   Buy Now
@@ -1077,9 +1091,9 @@ const AllPackages: React.FC = () => {
 
                 {/* right bottom - button */}
                 <button
-                  onClick={() => {
-                    navigate("/checkout");
-                  }}
+                  onClick={() =>
+                    navigate("/checkout", { state: { selectedPackage } })
+                  }
                   className="hidden md:block w-fit px-4 lg:px-8 py-2.5 lg:py-3.5 rounded-lg text-ternary text-sm md:text-base font-normal bg-primary hover:bg-primary/90 cursor-pointer"
                 >
                   Buy Package
@@ -1088,9 +1102,9 @@ const AllPackages: React.FC = () => {
             </div>
             <div className="block md:hidden m-4 pt-2">
               <button
-                onClick={() => {
-                  navigate("/checkout");
-                }}
+                onClick={() =>
+                  navigate("/checkout", { state: { selectedPackage } })
+                }
                 className="mw-fit px-4 lg:px-8 py-2.5 lg:py-3.5 rounded-lg text-ternary text-sm md:text-base font-normal bg-primary hover:bg-primary/90 cursor-pointer"
               >
                 Buy Package

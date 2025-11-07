@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeroSection from "../components/contact/HeroSection";
 import ContactForm from "../components/contact/ContactForm";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 
 const ContactUs: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <section className="w-full">
