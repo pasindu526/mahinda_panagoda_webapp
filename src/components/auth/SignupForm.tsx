@@ -61,11 +61,12 @@ const SignupForm: React.FC = ({
     if (formData.password.length < 8) {
       newErrors.password = "Password must be at least 8 characters";
       isValid = false;
-    }
-
-    if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = "Passwords do not match";
-      isValid = false;
+    } else {
+      // only check mismatch when length requirement is satisfied
+      if (formData.password !== formData.confirmPassword) {
+        newErrors.confirmPassword = "Passwords do not match";
+        isValid = false;
+      }
     }
 
     setErrors(newErrors);
