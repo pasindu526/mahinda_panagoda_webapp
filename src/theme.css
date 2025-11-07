@@ -7,9 +7,9 @@
 
 
 /* global.css or Tailwind base */
-html {
-  overflow-y: scroll; /* always show vertical scrollbar */
-}
+/* html {
+  overflow-y: scroll; always show vertical scrollbar */
+/* } */
 
 html.no-scroll,
 body.no-scroll {
