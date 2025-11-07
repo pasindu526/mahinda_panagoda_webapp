@@ -47,7 +47,7 @@ const ConfirmDetails: React.FC<ConfirmDetailsProps> = ({
 
   const [showErrors, setShowErrors] = useState(false);
 
-  const validate = () => {
+  const validate = React.useCallback(() => {
     let isValid = true;
     const newErrors = { firstName: "", lastName: "", email: "", phone: "" };
 
@@ -61,7 +61,7 @@ const ConfirmDetails: React.FC<ConfirmDetailsProps> = ({
       isValid = false;
     }
 
-    if (!formData.email.includes("@")) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
       newErrors.email = "Enter a valid email";
       isValid = false;
     }
@@ -73,19 +73,18 @@ const ConfirmDetails: React.FC<ConfirmDetailsProps> = ({
 
     setErrors(newErrors);
     return isValid;
-  };
+  }, [formData]);
 
   // Validate when triggered by parent
   useEffect(() => {
-    if (triggerValidation) {
-      const valid = validate();
-      // display errors until user interacts
-      setShowErrors(true);
-      if (onValidationChange) onValidationChange(valid);
-      // also send latest data back to parent
-      if (onDataChange) onDataChange(formData);
-    }
-  }, [triggerValidation]);
+    if (!triggerValidation) return;
+    const valid = validate();
+    // display errors until user interacts
+    setShowErrors(true);
+    if (onValidationChange) onValidationChange(valid);
+    // also send latest data back to parent
+    if (onDataChange) onDataChange(formData);
+  }, [triggerValidation, validate, formData, onValidationChange, onDataChange]);
 
   // Send updated data to parent
   useEffect(() => {
