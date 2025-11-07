@@ -8,6 +8,7 @@ import Packages from "./pages/Packages";
 import Home from "./pages/Home";
 import Guidlines from "./pages/Guidlines";
 import PreArrangements from "./pages/PreArrangements";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/publicfigure" element={<PublicFigure />} />
         <Route path="/guideline" element={<Guidlines />} />
-        <Route path="/checkout" element={<Guidlines />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </Router>
   );
