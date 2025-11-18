@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Navbar from "../components/common/Navbar";
 import Hero from "../components/home/Hero";
@@ -10,6 +10,10 @@ import Packages from "../components/home/PackagesSection";
 import Testimonials from "../components/home/Testimonials";
 
 const Home: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       {/* navbar */}

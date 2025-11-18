@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/common/Navbar";
 import HeroSection from "../components/packages/HeroSection";
 import AllPackages from "../components/packages/AllPackages";
 import Footer from "../components/common/Footer";
 
 const Packages: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       {/* navbar */}

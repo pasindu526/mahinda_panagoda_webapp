@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/common/Navbar";
 import HeroSection from "@/components/parlours/HeroSection";
 import Footer from "@/components/common/Footer";
 import AllParlous from "@/components/parlours/AllParlous";
 
 const Parlours: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       {/* navbar */}
